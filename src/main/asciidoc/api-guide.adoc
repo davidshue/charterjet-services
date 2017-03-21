@@ -1,0 +1,122 @@
+= XYZ Charter Jet Web Services API Guide
+David Shue;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to create/update an existing resource, including partial updates (idepotent operation)
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+RESTful notes tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `201 Created`
+| A new resource has been created successfully. The resource's URI is available from the response's
+`Location` header
+
+| `204 No Content`
+| An update to an existing resource has been applied successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+[[resources]]
+= Resources
+
+[[resources-planes]]
+== All Planes
+
+The XYZ charter jet planes web service that will spit out all the planes that are run by XYZ Charter Jet company.
+
+A `GET` request will list all of the cards.
+
+==== Example request
+
+include::{snippets}/planes/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/planes/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/planes/response-fields.adoc[]
+
+[[resources-plane]]
+== A Specific Plane
+
+=== `GET` request will fetch the plane with the name (here name is maverick)
+
+==== Example request
+
+include::{snippets}/planes/maverick/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/planes/maverick/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/planes/maverick/response-fields.adoc[]
+
+=== `PUT` request will add a new plane to the inventory or updating an existing plane
+
+==== Example request
+
+include::{snippets}/planes/nitro/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/planes/nitro/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/planes/nitro/response-fields.adoc[]
+
+=== `POST` request will calculate the duration it takes for the plane to fly from point A to point B
+
+==== Example request
+
+include::{snippets}/planes/flight/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/planes/flight/http-response.adoc[]
