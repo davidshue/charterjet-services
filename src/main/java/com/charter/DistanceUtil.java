@@ -7,7 +7,9 @@ import java.time.Duration;
 /**
  * Created by david on 3/21/17.
  */
-public abstract class DistanceUtil {
+public class DistanceUtil {
+    private DistanceUtil() {}
+
     public static int getDistance(Point from, Point to) {
         return (int)Math.sqrt((to.getY() - from.getY()) * (to.getY() - from.getY()) +
                 (to.getX() - from.getX()) * (to.getX() - from.getX())
